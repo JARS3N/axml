@@ -1,3 +1,4 @@
   getFile<-function(Z){
-    xml_node(Z,'FileName') %>% xml_text() %>% basename()
+    
+    rvest::xml_node(Z,'FileName') %>% xml2::xml_text() %>% basename()
   }

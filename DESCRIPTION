@@ -1,0 +1,14 @@
+Package: ASSAYXML
+Type: Package
+Title:ASSAYXML
+Version: 0.1.0
+Author: Who wrote it
+Maintainer: shhHH!!! <JARS3N@GMAIL.COM>
+Description: stuff
+Imports:
+        dplyr,
+        xml2,
+        rvest
+License: License 007
+Encoding: UTF-8
+LazyData: true

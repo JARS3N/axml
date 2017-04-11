@@ -1,1 +1,4 @@
- getInst<-function(Z){xml_node(Z,'InstrumentSerialNumber') %>% xml_text()}
+ getInst<-function(Z){
+  rvest::xml_node(Z,'InstrumentSerialNumber') %>% 
+  xml2::xml_text()
+ }

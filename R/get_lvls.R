@@ -17,16 +17,16 @@ get_lvls<-function(X){
           xml_text() %>% 
           as.numeric()})
     analytes<- xml_nodes(x,'AnalyteName') %>% 
-      xml_text() 
+      xml_text() %>% paste0(.,'lvl')
     setNames(counts,analytes) %>% 
       bind_cols() %>% 
       mutate(.,Well=seq(nrow(.)))
   }
   
   xml_nodes(X,"AnalyteDataSetsByAnalyteName") %>% 
-  lapply(.,getcounts) 
-  mapply(function(x,y){mutate(x,Tick=y) %>% bind_cols()},B,seq(B),SIMPLIFY = F)  %>% 
-  bind_rows() %>% 
-  inner_join(.,TickTable(X),by='Tick')
-
+    lapply(.,getcounts) %>% 
+  {mapply(function(x,y){mutate(x,Tick=y)},.,seq(.),SIMPLIFY = F)}  %>% 
+    bind_rows() %>% 
+    inner_join(.,TickTable(X),by='Tick')
+  
 }#end

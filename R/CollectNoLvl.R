@@ -1,6 +1,6 @@
 
   CollectNoLVL<-function(X){
-    require(XML)
+    require(rvest)
     require(dplyr)
     list(
       CAL = CalData(X),
